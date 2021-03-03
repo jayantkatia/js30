@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console Tricks!</title>
+</head>
+
+<body>
+    <p onclick="makeGreen()">xBreakxDownx</p>
+    <script>
+        const dogs = [{ name: 'Snickers', age: 2 }, { name: 'Hugo', age: 8 }];
+
+        function makeGreen() {
+            const p = document.querySelector('p');
+            p.style.fontSize = '50px';
+            p.style.color = '#BADA55';
+        }
+
+        //Regular
+        console.log("Hello, this is a regular console msg");
+
+        //Interpolation
+        console.log("This is how we %s before ES6", "Interpolated");
+
+        //Styling/formatting console logs
+        console.log("%c This is formatted", "color:blue;font-size:30px");
+
+        //warning
+        console.warn("This is a warning");
+        //Error
+        console.error("Error msg!");
+        //Info
+        console.log("Info msg");
+        //table
+        console.table(dogs);
+        //assertion
+        console.assert(1 == 1, "This is right!");
+        console.assert(1 == 2, "This is wrong! only wrong assertions are logged");
+
+        const p = document.querySelector('p');
+        console.assert(p.classList.contains('someClass'), "someClass is not in p");
+
+
+        //Viewing DOM elements
+        console.log(p);
+        console.dir(p);
+
+
+        //clear
+        console.clear();
+
+        //Grouping together
+        dogs.forEach(dog => {
+            console.groupCollapsed(`${dog.name}`);  // also can use console.group which is expanded by default
+            console.log(`This is ${dog.name}`);
+            console.log(`${dog.name} is ${dog.age} years old`);
+            console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+            console.groupEnd(`${dog.name}`);  //End with same text as in the start
+        });
+
+        //count
+        console.count("Jayant");
+        console.count("Jayant");
+        console.count("Jayant");
+        console.count("Katia");
+        console.count("Jayant");
+        console.count("Jayant");
+        console.count("Katia");
+        console.count("Katia");
+
+        //timing
+        console.time("Fetching data");
+        fetch('https://api.github.com/users/jayantkatia')
+            .then(data => data.json())
+            .then(data => {
+                console.timeEnd("Fetching data");
+                console.log(data);
+            });
+
+
+    </script>
+</body>
+
+</html>
