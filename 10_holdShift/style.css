@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    background-color: #ffc600;
+}
+
+.inbox{
+    background-color: white;
+    max-width: 500px;
+    margin: 50px auto;
+    border-radius:5px;
+    box-shadow:10px 10px 0 rgba(0,0,0,0.1);
+}
+.item{
+    display: flex;
+    align-items: center;
+    border: 1px solid #F1F1F1;
+}
+.item:last-child{
+        border-bottom:0;
+}
+
+input{
+    margin:20px;
+}
+input:checked + p {
+    background:#F9F9F9;
+    text-decoration: line-through;
+}
+p{
+    display: inline-block;
+    border-left: 1px solid #F1F1F1;
+    margin: 0;
+    padding: 10px 10px;
+    font-size: larger;
+    transition:all 0.2s;
+}
