@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy vs Reference</title>
+</head>
+
+<body>
+    <script>
+        // Strings, bool, numbers are copied by value
+        console.groupCollapsed("Strings Bool Numbers Copy value");
+        let name = "Jayant";
+        let name2 = name;
+        console.log(name, name2);
+        name2 = "Cool"
+        console.log(name, name2);
+        console.groupEnd("Strings Bool Numbers Copy value");
+
+        // Arrays are copied by reference
+
+        console.groupCollapsed("Reference");
+
+        const players = ["Jayant", "Utkarsh", "Aaryan", "Harsimer"];
+        const team = players;
+        console.log(players, team);
+        team[4] = "NewPlayer";
+        console.log(players, team);
+
+        console.groupEnd("Reference");
+
+        // How to copy arrays ...
+
+        console.groupCollapsed("How to copy arrays by value");
+
+        const team2 = [...players];
+        console.log(players, team2);
+        team2[4] = "Named";
+        console.log(players, team2);
+
+        const team3 = Array.from(players);
+        console.log(players, team3);
+        team3[4] = "Named";
+        console.log(players, team3);
+
+        const team4 = players.slice();
+        console.log(players, team4);
+        team4[4] = "Named";
+        console.log(players, team4);
+
+        const team5 = [].concat(players);
+        console.log(players, team5);
+        team5[4] = "Named";
+        console.log(players, team5);
+
+
+        console.groupEnd("How to copy arrays by value");
+
+        // Objects are passed by reference
+        console.groupCollapsed("Objects Reference");
+        const person = {
+            name: "Jayant Katia",
+            age: 20
+        }
+        const captain = person;
+        console.log(person, captain);
+        captain.id = 1;
+        console.log(person, captain);
+        console.groupEnd("Objects Reference");
+
+
+        // How to pass object by value
+        console.groupCollapsed("how to pass object by value");
+
+        const cap2 = Object.assign({}, person, { number: 99 });
+        console.log(person, captain, cap2);
+
+        console.groupEnd("how to pass object by value");
+
+        // However, the above techniques clone objects only one level deep
+        console.groupCollapsed("Objects copied one lvl deep");
+
+        const jayant = {
+            name: 'jayant',
+            age: 20,
+            social: {
+                'insta': '@jayant',
+                'facebook': 'jayant'
+            }
+        }
+
+        const dev = Object.assign({}, jayant);
+        dev.age = 21;
+        dev.social.facebook = "@jayantk"
+        console.log(jayant, dev);
+
+        console.groupEnd("Objects copied one lvl deep");
+
+
+
+        // Poor mans method to clone any lvls deep
+        console.groupCollapsed("Poor mans method to clone any lvls deep");
+        const dev2 = JSON.parse(JSON.stringify(jayant));
+
+        dev2.social.facebook = "@cool";
+
+        console.log(jayant, dev2);
+        console.groupEnd("Poor mans method to clone any lvls deep");
+
+
+    </script>
+</body>
+
+</html>
