@@ -1,0 +1,54 @@
+
+html{
+    font-size: 20px;
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+    background: #ffc600;
+}
+.photobooth{
+    max-width: 50rem;
+    margin: 1rem auto;
+    background: white;
+    border-radius:2px;
+}
+/* clearfix */
+.photobooth:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  
+  .photo {
+    width:100%;
+    float:left;
+  }
+  
+  .player {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    width:200px;
+  }
+/* Strip */
+.strip{
+    padding: 2rem;
+}
+
+.strip img {
+    width:100px;
+    overflow-x: scroll;
+    padding:0.8rem 0.8rem 1.5rem 0.8rem;
+    box-shadow:0 0 3px rgba(0,0,0,0.2);
+    background:white;
+}
+
+.strip a:nth-child(5n+1) img{ rotate: 10deg;}
+.strip a:nth-child(5n+2) img{ rotate: -2deg;}
+.strip a:nth-child(5n+3) img{ rotate: 8deg;}
+.strip a:nth-child(5n+4) img{ rotate: -11deg;}
+/* .strip a:nth-child(5n) img{ rotate: 12deg;} */

@@ -1,0 +1,67 @@
+html {
+    font-size: 10px;
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+
+  body {
+    font-family: sans-serif;
+    background-color:#3BC1AC;
+    min-height: 100vh;
+    margin: 0;
+    background-image:
+    radial-gradient(circle at 100% 150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0    150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent),
+    radial-gradient(circle at 50%  100%, #42D2BB 10%, #3BC1AC 11%, #3BC1AC 23%, #42D2BB 24%, #42D2BB 30%, #3BC1AC 31%, #3BC1AC 43%, #42D2BB 44%, #42D2BB 50%, #3BC1AC 51%, #3BC1AC 63%, #42D2BB 64%, #42D2BB 71%, transparent 71%, transparent),
+    radial-gradient(circle at 100% 50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent),
+    radial-gradient(circle at 0    50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent);
+    background-size:100px 50px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .voiceinator{
+      max-width: 400px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow:0 0 5px 5px rgba(0,0,0,0.1);
+  }
+  .voiceinator h1{
+      font-family: 'Pacifico', cursive;
+      font-size: 4rem;
+      margin: 0;
+      padding: 0 1rem;
+      background-color: #ffc600;
+      text-align: center;
+  }
+  .voiceinator input, .voiceinator select,.voiceinator label, textarea {
+      display: block;
+      margin: 1rem;
+      width: calc(100% - 2rem);
+  }
+  .voiceinator select{
+      outline: none;
+      border: none;
+      background-color: rgba(0,0,0,0.05);
+      font-size: large;
+  }
+  label{
+      font-size: 1.4em;
+  }
+  textarea{
+      height: 20rem;
+  }
+  .voiceinator button{
+      width: calc(50% - 2.5rem);
+      margin: 1rem;
+      background-color: #ffc600;
+      border: none;
+      font-size: 2rem;
+      padding: 1rem;
+      font-family: 'Pacifico',cursive;
+  }
