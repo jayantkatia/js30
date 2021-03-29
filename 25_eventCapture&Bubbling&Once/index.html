@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Capture, Bubbling & Once</title>
+</head>
+<body class="bod">
+    <div class="one">
+        <div class="two">
+            <div class="three"></div>
+        </div>
+    </div>
+    <button>Once</button>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after { box-sizing: inherit; }
+
+        div{
+            width: 100%;
+            padding: 100px;
+        }
+        .one{
+            background-color: thistle;
+        }
+        .two{
+            background-color: mistyrose;
+        }
+        .three{
+            background-color: coral;
+        }
+    </style>
+    <script>
+
+        // bubbling-> innermost div when clicked also implies the middle and outermost div clicked
+        // innermost is bubbled by the middle, outermost 
+        // middle is bubbled by the outermost only  
+
+        // event propagates default from clicked to its bubble parent
+        // setting capture->true makes it reverse the default
+
+        
+        function logText(e){
+            console.log(this.classList.value);
+            e.stopPropagation();  // event stops propagating to bubble parent/children depending on capture bool
+        }
+
+        const divs = document.querySelectorAll("div");
+        divs.forEach(div=> div.addEventListener("click",logText,{
+            // capture:false default
+            capture: true 
+        }));
+
+
+
+        document.querySelector("Button").addEventListener("click",()=>{
+            console.log("Click!!");
+        },{
+            once:true
+            // it unbinds the event listener after listening to it for the first time
+            // button.removeEventListener after 1st event listen
+        });
+
+    </script>
+</body>
+</html>
