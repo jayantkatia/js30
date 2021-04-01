@@ -66,7 +66,7 @@ button:focus{
 
 
 
-/* TODO:: not self implemented */
+/* TODO implement css:: not self implemented */
 /* css to design input */
 input[type=range] {
     -webkit-appearance: none;
